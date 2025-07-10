@@ -38,10 +38,3 @@ for (let i = 1; i <= 17; i++) {
   img.loading = 'lazy';
   gallery.appendChild(img);
 }
-
-// Texto animado en pestaña (rotando)
-let titleText = 'UDA25 by Pipaon Esperientziak ✦ ';
-setInterval(() => {
-  titleText = titleText.substring(1) + titleText[0];
-  document.title = titleText;
-}, 200);
