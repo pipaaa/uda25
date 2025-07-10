@@ -21,7 +21,7 @@ document.getElementById('closeWelcome').addEventListener('click', () => {
 const gallery = document.getElementById('gallery');
 for (let i = 1; i <= 17; i++) {
   const img = document.createElement('img');
-  img.src = `foto${i}.png`;
+  img.src = `${i}.png`;
   img.alt = `Foto ${i}`;
   img.loading = 'lazy';
   gallery.appendChild(img);
