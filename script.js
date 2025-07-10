@@ -9,34 +9,28 @@ window.addEventListener('load', () => {
     setTimeout(() => {
       loader.style.display = 'none';
       document.getElementById('main').style.display = 'block';
+      document.body.style.overflow = 'auto';
     }, 1000);
   }, 4000);
 });
 
 document.getElementById('closeWelcome').addEventListener('click', () => {
-  document.getElementById('welcome').style.opacity = 0;
-  setTimeout(() => document.getElementById('welcome').style.display = 'none', 500);
+  const welcome = document.getElementById('welcome');
+  welcome.style.opacity = 0;
+  setTimeout(() => welcome.style.display = 'none', 500);
 });
 
+// Cargar imágenes fullscreen
 const gallery = document.getElementById('gallery');
 for (let i = 1; i <= 17; i++) {
   const img = document.createElement('img');
   img.src = `${i}.png`;
-  img.alt = `Foto ${i}`;
+  img.alt = `Imagen ${i}`;
   img.loading = 'lazy';
   gallery.appendChild(img);
 }
 
-// Parallax scroll
-window.addEventListener('scroll', () => {
-  document.querySelectorAll('.gallery img').forEach((img) => {
-    const speed = 0.2;
-    const offset = window.scrollY * speed;
-    img.style.transform = `translateY(${offset}px)`;
-  });
-});
-
-// Animated tab title
+// Animación en la pestaña
 let titleText = "UDA25 by Pipaon Esperientziak ✦ ";
 setInterval(() => {
   titleText = titleText.substring(1) + titleText[0];
