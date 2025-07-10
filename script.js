@@ -1,25 +1,32 @@
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    const logo = document.getElementById('logo');
+  const loader = document.getElementById('loader');
+  const logo = document.getElementById('logo');
 
-    // Agrandar drásticamente el logo
+  setTimeout(() => {
+    // Quitar animación shake para el logo antes de agrandar
+    logo.style.animation = 'none';
+
+    // Añadir clase para el efecto de tragarse la pantalla
+    loader.classList.add('swallow');
+
+    // Agrandar el logo muchísimo y hacerlo transparente
     logo.style.transform = 'scale(50)';
     logo.style.opacity = '0';
 
-    // Después quitar el loader y mostrar contenido
+    // Después de la animación quitar loader y mostrar main
     setTimeout(() => {
-      document.getElementById('loader').style.display = 'none';
+      loader.style.display = 'none';
       document.getElementById('main').style.display = 'block';
       document.body.style.overflow = 'auto';
-    }, 1000);
+    }, 1200);
   }, 4000);
 });
 
-// Cerrar aviso
+// Cerrar aviso bienvenida
 document.getElementById('closeWelcome').addEventListener('click', () => {
   const welcome = document.getElementById('welcome');
   welcome.style.opacity = 0;
-  setTimeout(() => welcome.style.display = 'none', 500);
+  setTimeout(() => (welcome.style.display = 'none'), 500);
 });
 
 // Cargar imágenes 1.png a 17.png
@@ -32,8 +39,8 @@ for (let i = 1; i <= 17; i++) {
   gallery.appendChild(img);
 }
 
-// Texto animado en pestaña
-let titleText = "UDA25 by Pipaon Esperientziak ✦ ";
+// Texto animado en pestaña (rotando)
+let titleText = 'UDA25 by Pipaon Esperientziak ✦ ';
 setInterval(() => {
   titleText = titleText.substring(1) + titleText[0];
   document.title = titleText;
