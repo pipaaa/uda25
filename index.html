@@ -2,32 +2,53 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UDA25 by Pipaon Esperientziak</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="loader">
-    <img src="logo.png" id="logo" alt="Logo" />
+  <!-- PANTALLA DE ACTUALIZACIÓN -->
+  <div id="actualizacion" class="oculto">
+    <h2>Actualizando contenidos...</h2>
+    <p>Estamos trabajando en las últimas mejoras de UDA25. La información puede cambiar.</p>
+    <a href="estado_uda25.pdf" download class="boton-descarga">Descargar estado actual</a>
   </div>
 
-  <div id="main">
-    <div id="welcome">
-      <button id="closeWelcome">×</button>
-      <h2>Bienvenido</h2>
-      <p>
-        Esta página puede estar sujeta a cambios. No se recomienda descargar ni
-        fotografiar las imágenes, ya que podrían no estar actualizadas. La única
-        forma de ver la versión oficial es accediendo desde esta web.
-      </p>
-    </div>
+  <!-- PANTALLA DE CARGA -->
+  <div id="loader">
+    <img src="logo.png" alt="Logo UDA25" id="loader-logo" />
+  </div>
 
-    <div class="gallery" id="gallery"></div>
+  <!-- CONTENIDO PRINCIPAL -->
+  <div id="contenidoWeb" class="oculto">
+    <header>
+      <img src="logo.png" alt="Logo UDA25" id="logo-header">
+    </header>
+
+    <main id="galeria">
+      <!-- Las imágenes del 1.png al 17.png -->
+      <!-- Solo cambia el número del archivo si tienes más o menos fotos -->
+      <!-- Cada foto ocupa toda la pantalla y tiene transición fluida -->
+      <!-- Todas tienen esquinas redondeadas y efecto premium -->
+      <section class="foto"><img src="1.png" alt="Foto 1"></section>
+      <section class="foto"><img src="2.png" alt="Foto 2"></section>
+      <section class="foto"><img src="3.png" alt="Foto 3"></section>
+      <section class="foto"><img src="4.png" alt="Foto 4"></section>
+      <section class="foto"><img src="5.png" alt="Foto 5"></section>
+      <section class="foto"><img src="6.png" alt="Foto 6"></section>
+      <section class="foto"><img src="7.png" alt="Foto 7"></section>
+      <section class="foto"><img src="8.png" alt="Foto 8"></section>
+      <section class="foto"><img src="9.png" alt="Foto 9"></section>
+      <section class="foto"><img src="10.png" alt="Foto 10"></section>
+      <section class="foto"><img src="11.png" alt="Foto 11"></section>
+      <section class="foto"><img src="12.png" alt="Foto 12"></section>
+      <section class="foto"><img src="13.png" alt="Foto 13"></section>
+      <section class="foto"><img src="14.png" alt="Foto 14"></section>
+      <section class="foto"><img src="15.png" alt="Foto 15"></section>
+      <section class="foto"><img src="16.png" alt="Foto 16"></section>
+      <section class="foto"><img src="17.png" alt="Foto 17"></section>
+    </main>
   </div>
 
   <script src="script.js"></script>
