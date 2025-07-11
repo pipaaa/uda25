@@ -1,40 +1,33 @@
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  const logo = document.getElementById('logo');
+// Cambia esto a "on" para activar el modo de actualización
+const modoActualizacion = "off"; // <-- CAMBIA AQUÍ
 
+window.addEventListener("DOMContentLoaded", () => {
+  const actualizacion = document.getElementById("actualizacion");
+  const contenido = document.getElementById("contenidoWeb");
+  const loader = document.getElementById("loader");
+  const logo = document.getElementById("loader-logo");
+
+  // Modo actualización
+  if (modoActualizacion === "on") {
+    actualizacion.classList.remove("oculto");
+    contenido.style.display = "none";
+    if (loader) loader.style.display = "none";
+    return;
+  } else {
+    actualizacion.classList.add("oculto");
+    contenido.style.display = "block";
+  }
+
+  // Pantalla de carga
   setTimeout(() => {
-    // Quitar animación shake para el logo antes de agrandar
-    logo.style.animation = 'none';
+    // Animación de agrandamiento
+    logo.style.transition = "transform 1s ease-in-out";
+    logo.style.transform = "scale(20)";
 
-    // Añadir clase para el efecto de tragarse la pantalla
-    loader.classList.add('swallow');
-
-    // Agrandar el logo muchísimo y hacerlo transparente
-    logo.style.transform = 'scale(50)';
-    logo.style.opacity = '0';
-
-    // Después de la animación quitar loader y mostrar main
+    // Después de la animación, ocultar el loader y mostrar la web
     setTimeout(() => {
-      loader.style.display = 'none';
-      document.getElementById('main').style.display = 'block';
-      document.body.style.overflow = 'auto';
-    }, 1200);
-  }, 4000);
+      loader.classList.add("oculto");
+      contenido.classList.remove("oculto");
+    }, 1000);
+  }, 4000); // Duración de pantalla de carga
 });
-
-// Cerrar aviso bienvenida
-document.getElementById('closeWelcome').addEventListener('click', () => {
-  const welcome = document.getElementById('welcome');
-  welcome.style.opacity = 0;
-  setTimeout(() => (welcome.style.display = 'none'), 500);
-});
-
-// Cargar imágenes 1.png a 17.png
-const gallery = document.getElementById('gallery');
-for (let i = 1; i <= 17; i++) {
-  const img = document.createElement('img');
-  img.src = `${i}.png`;
-  img.alt = `Imagen ${i}`;
-  img.loading = 'lazy';
-  gallery.appendChild(img);
-}
