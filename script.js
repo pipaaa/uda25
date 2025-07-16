@@ -1,56 +1,49 @@
-const modoActualizacion = "off"; // Cambia a "on" para solo mostrar el aviso
+const modoActualizacion = "off"; // Cambia a "on" para modo solo actualización
 
 window.addEventListener("DOMContentLoaded", () => {
-  const actualizacion = document.getElementById("actualizacion");
-  const contenido = document.getElementById("contenidoWeb");
+  const videoContainer = document.getElementById("video-fullscreen");
+  const video = document.getElementById("anuncio");
   const loader = document.getElementById("loader");
-  const logo = document.getElementById("loader-logo");
-  const video = document.getElementById("video-intro");
-  const videoContainer = document.getElementById("video-container");
+  const logo = document.getElementById("logo-loader");
+  const contenido = document.getElementById("contenido");
+  const actualizacion = document.getElementById("actualizacion");
 
   if (modoActualizacion === "on") {
     actualizacion.classList.remove("oculto");
-    contenido.style.display = "none";
-    if (loader) loader.style.display = "none";
-    if (videoContainer) videoContainer.style.display = "none";
     return;
   }
 
-  // VIDEO
+  // Cargar video
   video.src = "anuncio.mp4";
   video.muted = false;
   video.volume = 1.0;
 
-  // AL TERMINAR EL VIDEO
   video.onended = () => {
     videoContainer.classList.add("oculto");
     loader.classList.remove("oculto");
 
+    // Espera 4 segundos y agranda logo
     setTimeout(() => {
-      if (logo) {
-        logo.style.transform = "scale(20)";
-      }
-
+      logo.style.transform = "scale(20)";
       setTimeout(() => {
         loader.classList.add("oculto");
         contenido.classList.remove("oculto");
+        document.body.style.overflow = "auto";
       }, 1000);
     }, 4000);
   };
 
+  // En caso de error en el video
   video.onerror = () => {
-    console.warn("No se pudo reproducir el vídeo. Saltando...");
     videoContainer.classList.add("oculto");
     loader.classList.remove("oculto");
 
     setTimeout(() => {
-      if (logo) {
-        logo.style.transform = "scale(20)";
-      }
-
+      logo.style.transform = "scale(20)";
       setTimeout(() => {
         loader.classList.add("oculto");
         contenido.classList.remove("oculto");
+        document.body.style.overflow = "auto";
       }, 1000);
     }, 4000);
   };
