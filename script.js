@@ -1,5 +1,5 @@
 // Cambia esto a "on" para activar el modo de actualización
-const modoActualizacion = "off"; // <-- CAMBIA AQUÍ
+const modoActualizacion = "on"; // <-- CAMBIA AQUÍ
 
 window.addEventListener("DOMContentLoaded", () => {
   const actualizacion = document.getElementById("actualizacion");
