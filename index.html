@@ -8,6 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- VIDEO ANUNCIO -->
+  <div id="video-container">
+    <video id="video-intro" autoplay muted playsinline></video>
+  </div>
+
   <!-- PANTALLA DE ACTUALIZACIÓN -->
   <div id="actualizacion" class="oculto">
     <h2>Actualizando contenidos...</h2>
@@ -16,7 +22,7 @@
   </div>
 
   <!-- PANTALLA DE CARGA -->
-  <div id="loader">
+  <div id="loader" class="oculto">
     <img src="logo.png" alt="Logo UDA25" id="loader-logo" />
   </div>
 
@@ -27,10 +33,7 @@
     </header>
 
     <main id="galeria">
-      <!-- Las imágenes del 1.png al 17.png -->
-      <!-- Solo cambia el número del archivo si tienes más o menos fotos -->
-      <!-- Cada foto ocupa toda la pantalla y tiene transición fluida -->
-      <!-- Todas tienen esquinas redondeadas y efecto premium -->
+      <!-- Fotos del 1 al 17 -->
       <section class="foto"><img src="1.png" alt="Foto 1"></section>
       <section class="foto"><img src="2.png" alt="Foto 2"></section>
       <section class="foto"><img src="3.png" alt="Foto 3"></section>
