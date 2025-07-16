@@ -34,23 +34,10 @@
 
     <main id="galeria">
       <!-- Fotos del 1 al 17 -->
-      <section class="foto"><img src="1.png" alt="Foto 1"></section>
-      <section class="foto"><img src="2.png" alt="Foto 2"></section>
-      <section class="foto"><img src="3.png" alt="Foto 3"></section>
-      <section class="foto"><img src="4.png" alt="Foto 4"></section>
-      <section class="foto"><img src="5.png" alt="Foto 5"></section>
-      <section class="foto"><img src="6.png" alt="Foto 6"></section>
-      <section class="foto"><img src="7.png" alt="Foto 7"></section>
-      <section class="foto"><img src="8.png" alt="Foto 8"></section>
-      <section class="foto"><img src="9.png" alt="Foto 9"></section>
-      <section class="foto"><img src="10.png" alt="Foto 10"></section>
-      <section class="foto"><img src="11.png" alt="Foto 11"></section>
-      <section class="foto"><img src="12.png" alt="Foto 12"></section>
-      <section class="foto"><img src="13.png" alt="Foto 13"></section>
-      <section class="foto"><img src="14.png" alt="Foto 14"></section>
-      <section class="foto"><img src="15.png" alt="Foto 15"></section>
-      <section class="foto"><img src="16.png" alt="Foto 16"></section>
-      <section class="foto"><img src="17.png" alt="Foto 17"></section>
+      ${[...Array(17).keys()].map(i => `
+      <section class="foto">
+        <img src="${i + 1}.png" alt="Foto ${i + 1}">
+      </section>`).join('')}
     </main>
   </div>
 
