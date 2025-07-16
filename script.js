@@ -1,4 +1,4 @@
-const modoActualizacion = "off"; // Cambia a "on" si quieres mostrar solo la pantalla de actualización
+const modoActualizacion = "off"; // Cambia a "on" para solo mostrar el aviso
 
 window.addEventListener("DOMContentLoaded", () => {
   const actualizacion = document.getElementById("actualizacion");
@@ -8,7 +8,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const video = document.getElementById("video-intro");
   const videoContainer = document.getElementById("video-container");
 
-  // Modo actualización
   if (modoActualizacion === "on") {
     actualizacion.classList.remove("oculto");
     contenido.style.display = "none";
@@ -17,19 +16,18 @@ window.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Reproducir video a volumen alto
+  // VIDEO
   video.src = "anuncio.mp4";
-  video.volume = 1.0; // Volumen máximo
+  video.muted = false;
+  video.volume = 1.0;
 
-  // Cuando termina el vídeo
+  // AL TERMINAR EL VIDEO
   video.onended = () => {
     videoContainer.classList.add("oculto");
     loader.classList.remove("oculto");
 
-    // Pantalla de carga (4s) + animación de logo
     setTimeout(() => {
       if (logo) {
-        logo.style.transition = "transform 1s ease-in-out";
         logo.style.transform = "scale(20)";
       }
 
@@ -40,15 +38,13 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 4000);
   };
 
-  // Si el vídeo no se puede reproducir (por error), saltamos directamente
   video.onerror = () => {
-    console.warn("No se pudo reproducir el vídeo. Cargando contenido directamente.");
+    console.warn("No se pudo reproducir el vídeo. Saltando...");
     videoContainer.classList.add("oculto");
     loader.classList.remove("oculto");
 
     setTimeout(() => {
       if (logo) {
-        logo.style.transition = "transform 1s ease-in-out";
         logo.style.transform = "scale(20)";
       }
 
